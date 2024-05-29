@@ -31,6 +31,8 @@ export default function App() {
   }
   const onReset = () => {
     setShowAppOptions(false);
+    setSelectedImage(null);
+    setPickedEmoji(null);
   }
 
   const onAddSticker= () => {
@@ -65,7 +67,7 @@ export default function App() {
         });
         
         let link = document.createElement('a');
-        link.download = 'sticker-smash.jpeg';
+        link.download = `sticker-smash${Math.random().toString()}.jpeg`;
         link.href = dataUrl;
         link.click();
       } catch (e) {
