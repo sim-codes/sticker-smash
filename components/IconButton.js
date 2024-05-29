@@ -1,10 +1,11 @@
-import { Pressable, StyleSheet, Text } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Pressable, StyleSheet, Text, Image } from "react-native";
 
 export default function IconButton({ icon, label, onPress }) {
+    const link = icon === "reset" ? require("../assets/images/reset.png") : 
+        require("../assets/images/save.png");
     return (
         <Pressable style={StyleSheet.iconButton} onPress={onPress}>
-            <MaterialIcons name={icon} size={24} color="#fff" />
+            <Image source={link} style={styles.buttonIcon} />
             <Text style={styles.iconButtonLabel}>{label}</Text>
         </Pressable>
     )
@@ -18,5 +19,10 @@ const styles = StyleSheet.create({
     iconButtonLabel: {
         color: '#fff',
         marginTop: 12,
-    }
+    },
+    buttonIcon: {
+        width: 24,
+        height: 24,
+        tintColor: '#fff',
+    },
 })
