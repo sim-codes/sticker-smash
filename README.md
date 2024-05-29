@@ -1,6 +1,6 @@
 # Stciker Smash
 
-A universal app that runs on Android, iOS, and the web; all with a single codebase. Let's get started!
+A universal app that runs on Android, iOS, and the web; all with a single codebase.
 
 
 ## Technologies Used
