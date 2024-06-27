@@ -25,8 +25,24 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
 
     const drag = Gesture.Pan()
         .onChange((event) => {
+          // Lock the sticker X and Y position to the parent view
+          if (translateX.value + event.changeX < 0 ) {
+            translateX.value = 0;
+          } else if (translateX.value + event.changeX >  320 - scaleImage.value) {
+            translateX.value = 320 - scaleImage.value;
+          }
+          else {
             translateX.value += event.changeX;
+          }
+
+          if (translateY.value + event.changeY < -88) {
+            translateY.value = -88;
+          } else if (translateY.value + event.changeY > 350 - scaleImage.value) {
+            translateY.value = 350 - scaleImage.value;
+          }
+          else {
             translateY.value += event.changeY;
+          }
         });
 
 
